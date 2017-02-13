@@ -1,0 +1,19 @@
+{
+  "name": "atcg-fluidics-container",
+  "version": "1.0.0",
+  "description": "Makes animated items fluidic inside.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "polymer serve | npm run watch",
+    "test": "polymer test",
+    "watch": "browser-sync start --proxy localhost:8080/components/atcg-fluidics-container/demo/index.html --files '**/*.html' "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.7"
+  }
+}

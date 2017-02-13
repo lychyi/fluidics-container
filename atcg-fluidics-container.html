@@ -1,0 +1,48 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-overlay-behavior/iron-overlay-behavior.html">
+
+<!--
+`atcg-fluidics-container`
+Makes animated items fluidic inside.
+
+@demo demo/index.html 
+-->
+
+<dom-module id="atcg-fluidics-container">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        filter: url('#fluidic-filter');
+      }
+    </style>
+    <content></content>
+    <!-- This is where the magic happens -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="fluidic-filter">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feBlend in="SourceGraphic" in2="fluidics-filter" />
+        </filter>
+      </defs>
+    </svg>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'atcg-fluidics-container',
+
+      behaviors: [ 
+        Polymer.IronOverlayBehavior 
+      ],
+
+    });
+  </script>
+</dom-module>
