@@ -1,16 +1,111 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>atcg-fluidics-container</title>
+    <title>atcg-fluidics-container demo</title>
 
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../iron-component-page/iron-component-page.html">
+    <link rel="import" href="../atcg-fluidics-container.html">
+
+    <style is="custom-style">
+      :root {
+        --iron-overlay-backdrop-background-color: #ddd;
+      }
+      .dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        background-color: #ffb441;
+        animation: lose-mass 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      }
+
+      .dot:nth-child(2) {
+        animation: shift-2 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      }
+      .dot:nth-child(3) {
+        animation: shift-3 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      }
+      .dot:nth-child(4) {
+        animation: shift-4 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      }
+      .dot:nth-child(5) {
+        animation: shift-5 2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
+      }
+
+      @keyframes lose-mass{
+        0%{
+          transform: scale(1);
+        }
+        22%{
+          transform: scale(0.55, 0.55);
+        }
+        55%{
+          transform: scale(0.55, 0.55);
+        }
+      }
+      @keyframes shift-2{
+        0%{
+          transform:scale(1) translate(0,0);
+        }
+        32%{
+          transform:scale(0.5, 0.5) translate(-49px, -35px);
+          background: coral;
+        }
+        100%{
+          transform:scale(1) translate(0,0);
+        }
+      }
+      @keyframes shift-3{
+        0%{
+          transform:scale(1) translate(0,0);
+        }
+        62%{
+          transform:scale(0.35, 0.35) translate(-62px, 13px);
+          background: indianred;
+        }
+        100%{
+          transform:scale(1) translate(0,0);
+        }
+      }
+      @keyframes shift-4{
+        0%{
+          transform:scale(1) translate(0,0);
+        }
+        72%{
+          transform:scale(0.45, 0.45) translate(30px, -72px);
+          background: deepskyblue;
+        }
+        100%{
+          transform:scale(1) translate(0,0);
+        }
+      }
+      @keyframes shift-5{
+        0%{
+          transform:scale(1) translate(0,0);
+        }
+        79%{
+          transform:scale(0.4, 0.4) translate(49px, 35px);
+          background: lightgreen;
+        }
+        100%{
+          transform:scale(1) translate(0,0);
+        }
+      }
+    </style>
   </head>
   <body>
-    <iron-component-page src="atcg-fluidics-container.html"></iron-component-page>
+      <atcg-fluidics-container opened with-backdrop always-on-top>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </atcg-fluidics-container>
   </body>
 </html>
